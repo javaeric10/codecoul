@@ -1,613 +1,73 @@
+package codecouleurresist;
+import java.util.Scanner;
+public class Codecouleur {
 
-import static java.lang.System.in;
-import static java.lang.System.out;
+	public static void main(String[] args) {
+	try ( Scanner Scanner = new Scanner( System.in ) ){
+		// TODO Auto-generated method stub
+		// code couleur
+		System.out.printf("code couleur des resistances\n");
+		// couleur des anneau 1 
+		System.out.printf("couleur de l'anneau 1\r\n" +  "brun - 1\r\n" + "rouge - 2\r\n"
+				+ "orange - 3\r\n" + "jaune - 4\r\n" + "vert - 5\r\n" + "bleu - 6\r\n" + "violette - 7\r\n"
+				+ "gris - 8\r\n" + "blanc - 9\n");
+		// couleur des anneau 2 
+		System.out.printf("couleur de l'anneau 2\r\n" + "noir - 0\r\n" + "brun - 1\r\n" + "rouge - 2\r\n"
+						+ "orange - 3\r\n" + "jaune - 4\r\n" + "vert - 5\r\n" + "bleu - 6\r\n" + "violette - 7\r\n"
+						+ "gris - 8\r\n" + "blanc - 9\n");
+				// couleur des anneau 3 
+		System.out.printf("couleur de l'anneau 3\r\n" + "noir - 1\r\n" + "brun - 10\r\n" + "rouge - 100\r\n"
+						+ "orange - 1e3\r\n" + "jaune - 1e4\r\n" + "vert - 1e5\r\n" + "bleu - 1e6\r\n" + "violette - 1e7\r\n"
+						+ "gris - 1e8\r\n" + "blanc - 1e9" + "argent - 0.1\r\n" + "or - 0.01\"\n");
+		// couleur de l'anneau 4
+		System.out.printf("couleur de l'anneau 4  argent - 5\r\n" + "or - 10\n");
+		
+		// choix des couleur des anneaux
+		// anneau 1
+		  System.out.print( "Veuillez saisir la couleur du premier anneau : " );
+          int couleuran1 = Scanner.nextInt();
+       // anneau 2
+          System.out.print( "Veuillez saisir la couleur du deuxieme anneau : " );
+          int couleuran2 = Scanner.nextInt();
+       // anneau 3
+          System.out.print( "Veuillez saisir la couleur du troisieme anneau : " );
+          int couleuran3 = Scanner.nextInt();
+       // anneau 4
+          System.out.print( "Veuillez saisir la couleur du quatrieme anneau taper 0 si il n y en a pas: " );
+          int tolerance = Scanner.nextInt();
+		// calcul de la resistance 3 anneau
+          if (tolerance == 0) {
+        	  System.out.print( "votre resistance a une tolerance de 20 %"  ); 
+        	  //valeur resitance
+        	 int valeurresist = (((couleuran1 + 10)+couleuran2)* couleuran3);
+        	 // valeur tolerance
+        	 int valeurto = (valeurresist * 20)/100;
+        	 // valeur  avec tolerance
+        	 int valeurresittol1 = valeurresist-valeurto;
+        	 int valeurresittol2= valeurresist+valeurto;
+        	// affichage valeur
+        	 System.out.print( "votre resistance fait "+ valeurresist +"ohms avec une tolerance de 20%" );
+        	 // resitance avec  +20%
+        	 System.out.print("soit entre " + valeurresittol2 + " et " + valeurresittol1 );
+        	 
+          } else {
+        	//calcul resistance 4 anneaux
+        	  System.out.print( "votre resistance a une tolerance de " + tolerance ); 
+        	  //valeur resitance
+        	 int valeurresist = (((couleuran1 + 10)+couleuran2)* couleuran3);
+        	 // valeur tolerance
+        	 int valeurto = (valeurresist * tolerance)/100;
+        	 // valeur  avec tolerance
+        	 int valeurresittol1 = valeurresist-valeurto;
+        	 int valeurresittol2= valeurresist+valeurto;
+        	// affichage valeur
+        	 System.out.print( "\n votre resistance fait "+ valeurresist +" ohms avec une tolerance de " +tolerance + "%" );
+        	 // resitance avec  +20%
+        	 System.out.print("soit entre " + valeurresittol2 + " et " + valeurresittol1 );
+        	 
+          }
+		
+	}
 
-public class Main {
-
-
-    public static void main (String[] args) {
-        int nombrean;
-        try (java.util.Scanner scanner = new java.util.Scanner ( in )) {
-            /* nombre d'anneaux de la resistance */
-            out.println ( "combien d'anneau comporte votre resistance" );
-            nombrean = scanner.nextInt ();
-            if ( nombrean == 3 ) {
-                out.println ( "votre resitance a 3 anneaux" );
-                //couleur anneau 1
-                out.print ( """
-                        noir - 0
-                        brun - 1
-                        rouge - 2
-                        orange - 3
-                        jaune - 4
-                        vert - 5
-                        bleu - 6
-                        violette - 7
-                        gris - 8
-                        blanc - 9
-                        """ );
-                out.println ( "couleur du premier anneau, tape le chiffre correspondant a la couleur" );
-                double couleuran1 = (int) scanner.nextDouble ();
-                //couleur anneau2
-                out.print ( """
-                        noir - 0
-                        brun - 1
-                        rouge - 2
-                        orange - 3
-                        jaune - 4
-                        vert - 5
-                        bleu - 6
-                        violette - 7
-                        gris - 8
-                        blanc - 9
-                        """ );
-                out.println ( "couleur du deuxieme anneau, tape le chiffre correspondant a la couleur" );
-                double couleuran2 = scanner.nextInt ();
-                //  couleur anneau 3
-                out.print ( """
-                        noir - 1
-                        brun - 2
-                        rouge - 3
-                        orange - 4
-                        jaune - 5
-                        vert - 6
-                        bleu - 7
-                        violette - 8
-                        gris - 9
-                        blanc - 10
-                        or - 11
-                        argent - 12""" );
-                out.println ( "\n couleur du troisieme anneau, tape le chiffre correspondant a la couleur" );
-                double couleuran3 = scanner.nextInt ();
-
-                //valeur anneau 1
-                if ( couleuran1 == 1 ) {
-                    int valeuran1 = 1;
-                    int valeuran2 = 1;
-                    int valeuran3 = 1;
-                    var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                    out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-                } else if ( couleuran1 == 2 ) {
-                    int valeuran1 = 2;
-                    int valeuran2 = 2;
-                    int valeuran3 = 100;
-                    var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                    out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-                } else if ( couleuran1 == 3 ) {
-                    int valeuran1 = 3;
-                    int valeuran2 = 3;
-                    int valeuran3 = 1000;
-                    var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                    out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-                } else if ( couleuran1 == 4 ) {
-                    int valeuran1 = 4;
-                    int valeuran2 = 4;
-                    int valeuran3 = 10000;
-                    var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                    out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-                } else if ( couleuran1 == 5 ) {
-                    int valeuran1 = 5;
-                    int valeuran2 = 5;
-                    int valeuran3 = 100000;
-                    var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                    out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-                } else if ( couleuran1 == 6 ) {
-                    int valeuran1 = 6;
-                    int valeuran2 = 6;
-                    int valeuran3 = 1000000;
-                    var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                    out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-                } else if ( couleuran1 == 7 ) {
-                    int valeuran1 = 7;
-                    int valeuran2 = 7;
-                    int valeuran3 = 10000000;
-                    var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                    out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-                } else if ( couleuran1 == 8 ) {
-                    int valeuran1 = 8;
-                    int valeuran2 = 8;
-                    int valeuran3 = 100000000;
-                    var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                    out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-                } else if ( couleuran1 == 9 ) {
-                    int valeuran1 = 9;
-                    int valeuran2 = 9;
-                    int valeuran3 = 1000000000;
-                    var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                    out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-                }
-                //valeur anneau 2
-                if ( couleuran2 == 1 ) {
-                    int valeuran1 = 1;
-                    int valeuran2 = 1;
-                    int valeuran3 = 1;
-                    var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                    out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-                } else if ( couleuran2 == 2 ) {
-                    int valeuran1 = 2;
-                    int valeuran2 = 2;
-                    int valeuran3 = 10;
-                    var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                    out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-                } else if ( couleuran2 == 3 ) {
-                    int valeuran1 = 3;
-                    int valeuran2 = 3;
-                    int valeuran3 = 10;
-                    var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                    out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-                } else if ( couleuran2 == 4 ) {
-                    int valeuran1 = 3;
-                    int valeuran2 = 3;
-                    int valeuran3 = 100;
-                    var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                    out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-                } else if ( couleuran2 == 5 ) {
-                    int valeuran1 = 4;
-                    int valeuran2 = 4;
-                    int valeuran3 = 1000;
-                    var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                    out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-                } else if ( couleuran2 == 6 ) {
-                    int valeuran1 = 5;
-                    int valeuran2 = 5;
-                    int valeuran3 = 10000;
-                    var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                    out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-                } else if ( couleuran2 == 7 ) {
-                    int valeuran1 = 6;
-                    int valeuran2 = 6;
-                    int valeuran3 = 100000;
-                    var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                    out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-                } else if ( couleuran2 == 8 ) {
-                    int valeuran1 = 7;
-                    int valeuran2 = 7;
-                    int valeuran3 = 1000000;
-                    var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                    out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-                } else if ( couleuran2 == 9 ) {
-                    int valeuran1 = 8;
-                    int valeuran2 = 8;
-                    int valeuran3 = 10000000;
-                    var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                    out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-                } else if ( couleuran2 == 10 ) {
-                    int valeuran1 = 9;
-                    int valeuran2 = 9;
-                    int valeuran3 = 100000000;
-                    var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                    out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-                }
-                // valeur anneau 3
-                if ( couleuran3 == 1 ) {
-                    int valeuran1 = 1;
-                    int valeuran2 = 1;
-                    int valeuran3 = 1;
-                    var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                    out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-                } else if ( couleuran3 == 2 ) {
-                    int valeuran1 = 2;
-                    int valeuran2 = 2;
-                    int valeuran3 = 10;
-                    var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                    out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-                } else if ( couleuran3 == 3 ) {
-                    int valeuran1 = 3;
-                    int valeuran2 = 3;
-                    int valeuran3 = 10;
-                    var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                    out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-                } else if ( couleuran3 == 4 ) {
-                    int valeuran1 = 3;
-                    int valeuran2 = 3;
-                    int valeuran3 = 100;
-                    var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                    out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-                } else if ( couleuran3 == 5 ) {
-                    int valeuran1 = 4;
-                    int valeuran2 = 4;
-                    int valeuran3 = 1000;
-                    var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                    out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-                } else if ( couleuran3 == 6 ) {
-                    int valeuran1 = 5;
-                    int valeuran2 = 5;
-                    int valeuran3 = 10000;
-                    var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                    out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-                } else if ( couleuran3 == 7 ) {
-                    int valeuran1 = 6;
-                    int valeuran2 = 6;
-                    int valeuran3 = 100000;
-                    var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                    out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-                } else if ( couleuran3 == 8 ) {
-                    int valeuran1 = 7;
-                    int valeuran2 = 7;
-                    int valeuran3 = 1000000;
-                    var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                    out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-                } else if ( couleuran3 == 9 ) {
-                    int valeuran1 = 8;
-                    int valeuran2 = 8;
-                    int valeuran3 = 10000000;
-                    var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                    out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-                } else if ( couleuran3 == 10 ) {
-                    int valeuran1 = 9;
-                    int valeuran2 = 9;
-                    int valeuran3 = 100000000;
-                    var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                    out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-                } else if ( couleuran3 == 11 ) {
-                    int valeuran1 = 9;
-                    int valeuran2 = 9;
-                    int valeuran3 = 100000000;
-                    var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                    out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-                } else if ( couleuran3 == 12 ) {
-                    int valeuran1 = 9;
-                    int valeuran2 = 9;
-                    int valeuran3 = 100000000;
-                    var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                    out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-                }
-            }
-        }
-        if ( nombrean == 4 ) {
-
-            out.println ( "votre resitance a 4 anneaux" );
-            java.util.Scanner scanner = null;
-            double couleuranr41 = scanner.nextInt ();
-
-            //couleur anneau 1
-            out.print ( """
-                    noir - 0
-                    brun - 1
-                    rouge - 2
-                    orange - 3
-                    jaune - 4
-                    vert - 5
-                    bleu - 6
-                    violette - 7
-                    gris - 8
-                    blanc - 9
-                    """ );
-            out.println ( "couleur du premier anneau, tape le chiffre correspondant a la couleur" );
-            int couleuran41 = 0;
-            couleuran41 = (int) scanner.nextDouble ();
-            //couleur anneau2
-            out.print ( """
-                    noir - 0
-                    brun - 1
-                    rouge - 2
-                    orange - 3
-                    jaune - 4
-                    vert - 5
-                    bleu - 6
-                    violette - 7
-                    gris - 8
-                    blanc - 9
-                    """ );
-            out.println ( "couleur du deuxieme anneau, tape le chiffre correspondant a la couleur" );
-            double couleuranr2 = scanner.nextInt ();
-            //  couleur anneau 3
-            out.print ( """
-                    noir - 1
-                    brun - 2
-                    rouge - 3
-                    orange - 4
-                    jaune - 5
-                    vert - 6
-                    bleu - 7
-                    violette - 8
-                    gris - 9
-                    blanc - 10
-                    or - 11
-                    argent - 12""" );
-            out.println ( "\n couleur du troisieme anneau, tape le chiffre correspondant a la couleur" );
-            double couleuran43 = scanner.nextInt ();
-
-            //valeur anneau 1
-
-            if ( couleuran41 == 1 ) {
-                int valeuran1 = 1;
-                int valeuran2 = 1;
-                int valeuran3 = 1;
-                int valeuran4 = 1;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuran41 == 2 ) {
-                int valeuran1 = 2;
-                int valeuran2 = 2;
-                int valeuran3 = 2;
-                int valeuran4 = 10;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuran41 == 3 ) {
-                int valeuran1 = 3;
-                int valeuran2 = 3;
-                int valeuran3 = 3;
-                int valeuran4 = 100;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuran41 == 4 ) {
-                int valeuran1 = 4;
-                int valeuran2 = 4;
-                int valeuran3 = 4;
-                int valeuran4 = 1000;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuran41 == 5 ) {
-                int valeuran1 = 5;
-                int valeuran2 = 5;
-                int valeuran3 = 5;
-                int valeuran4 = 10000;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuran41 == 6 ) {
-                int valeuran1 = 6;
-                int valeuran2 = 6;
-                int valeuran3 = 6;
-                int valeuran4 = 100000;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuran41 == 7 ) {
-                int valeuran1 = 7;
-                int valeuran2 = 7;
-                int valeuran3 = 7;
-                int valeuran4 = 1000000;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuran41 == 8 ) {
-                int valeuran1 = 8;
-                int valeuran2 = 8;
-                int valeuran3 = 8;
-                int valeuran4 = 10000000;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuran41 == 9 ) {
-                int valeuran41 = 9;
-                int valeuran2 = 9;
-                int valeuran3 = 9;
-                int valeuran4 = 100000000;
-                var valeurrist = ((valeuran41 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            }
-            //valeur anneau 2
-            int couleuran42 = 0;
-            if ( couleuran42 == 1 ) {
-                int valeuran1 = 1;
-                int valeuran2 = 1;
-                int valeuran3 = 1;
-                int valeuran4 = 1;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuran42 == 2 ) {
-                int valeuran1 = 2;
-                int valeuran2 = 2;
-                int valeuran3 = 2;
-                int valeuran4 = 10;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuran42 == 3 ) {
-                int valeuran1 = 3;
-                int valeuran2 = 3;
-                int valeuran3 = 3;
-                int valeuran4 = 100;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuran42 == 4 ) {
-                int valeuran1 = 3;
-                int valeuran2 = 3;
-                int valeuran3 = 3;
-                int valeuran4 = 1000;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuran42 == 5 ) {
-                int valeuran1 = 4;
-                int valeuran2 = 4;
-                int valeuran3 = 4;
-                int valeuran4 = 10000;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuran42 == 6 ) {
-                int valeuran1 = 5;
-                int valeuran2 = 5;
-                int valeuran3 = 5;
-                int valeuran4 = 100000;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuran42 == 7 ) {
-                int valeuran1 = 6;
-                int valeuran2 = 6;
-                int valeuran3 = 6;
-                int valeuran4 = 1000000;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuran42 == 8 ) {
-                int valeuran1 = 7;
-                int valeuran2 = 7;
-                int valeuran3 = 7;
-                int valeuran4 = 10000000;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuran42 == 9 ) {
-                int valeuran1 = 8;
-                int valeuran2 = 8;
-                int valeuran3 = 8;
-                int valeuran4 = 10000000;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuran42 == 10 ) {
-                int valeuran1 = 9;
-                int valeuran2 = 9;
-                int valeuran3 = 9;
-                int valeuran4 = 100000000;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            }
-            // valeur anneau 3
-            int couleuranr3 = 0;
-            if ( couleuranr3 == 1 ) {
-                int valeuran1 = 1;
-                int valeuran2 = 1;
-                int valeuran3 = 1;
-                int valeuran4 = 1;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuranr3 == 2 ) {
-                int valeuran1 = 2;
-                int valeuran2 = 2;
-                int valeuran3 = 2;
-                int valeuran4 = 10;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuranr3 == 3 ) {
-                int valeuran1 = 3;
-                int valeuran2 = 3;
-                int valeuran3 = 3;
-                int valeuran4 = 100;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuranr3 == 4 ) {
-                int valeuran1 = 3;
-                int valeuran2 = 3;
-                int valeuran3 = 3;
-                int valeuran4 = 1000;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuranr3 == 5 ) {
-                int valeuran1 = 4;
-                int valeuran2 = 4;
-                int valeuran3 = 4;
-                int valeuran4 = 10000;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuranr3 == 6 ) {
-                int valeuran1 = 5;
-                int valeuran2 = 5;
-                int valeuran3 = 5;
-                int valeuran4 = 100000;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuranr3 == 7 ) {
-                int valeuran1 = 6;
-                int valeuran2 = 6;
-                int valeuran3 = 6;
-                int valeuran4 = 1000000;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuranr3 == 8 ) {
-                int valeuran1 = 7;
-                int valeuran2 = 7;
-                int valeuran3 = 7;
-                int valeuran4 = 10000000;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuranr3 == 9 ) {
-                int valeuran1 = 8;
-                int valeuran2 = 8;
-                int valeuran3 = 8;
-                int valeuran4 = 100000000;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuranr3 == 10 ) {
-                int valeuran1 = 9;
-                int valeuran2 = 9;
-                int valeuran3 = 9;
-                int valeuran4 = 1000000000;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            }
-            // valeur anneau 4
-            int couleuranr4 = 0;
-            if ( couleuranr4 == 1 ) {
-                int valeuran1 = 1;
-                int valeuran2 = 1;
-                int valeuran3 = 1;
-                int valeuran4 = 1;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuranr4 == 2 ) {
-                int valeuran1 = 2;
-                int valeuran2 = 2;
-                int valeuran3 = 2;
-                int valeuran4 = 10;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuranr4 == 3 ) {
-                int valeuran1 = 3;
-                int valeuran2 = 3;
-                int valeuran3 = 3;
-                int valeuran4 = 100;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuranr4 == 4 ) {
-                int valeuran1 = 3;
-                int valeuran2 = 3;
-                int valeuran3 = 3;
-                int valeuran4 = 1000;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuranr4 == 5 ) {
-                int valeuran1 = 4;
-                int valeuran2 = 4;
-                int valeuran3 = 4;
-                int valeuran4 = 10000;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuranr4 == 6 ) {
-                int valeuran1 = 5;
-                int valeuran2 = 5;
-                int valeuran3 = 5;
-                int valeuran4 = 100000;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuranr4 == 7 ) {
-                int valeuran1 = 6;
-                int valeuran2 = 6;
-                int valeuran3 = 6;
-                int valeuran4 = 1000000;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuranr4 == 8 ) {
-                int valeuran1 = 7;
-                int valeuran2 = 7;
-                int valeuran3 = 7;
-                int valeuran4 = 10000000;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuranr4 == 9 ) {
-                int valeuran1 = 8;
-                int valeuran2 = 8;
-                int valeuran3 = 8;
-                int valeuran4 = 100000000;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            } else if ( couleuranr4 == 10 ) {
-                int valeuran1 = 9;
-                int valeuran2 = 9;
-                int valeuran3 = 9;
-                int valeuran4 = 1000000000;
-                var valeurrist = ((valeuran1 + 10) + valeuran2) * valeuran3;
-                out.println ( "votre resitance fait " + (valeurrist) + " ohms" );
-            }
-        }
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}}
 
